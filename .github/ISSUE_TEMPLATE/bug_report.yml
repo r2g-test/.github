@@ -1,0 +1,58 @@
+name: Bug report
+description: Report reproducible incorrect behavior
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a problem. Remove secrets and private data before submitting.
+  - type: input
+    id: repository
+    attributes:
+      label: Affected repository and version
+      placeholder: org/repo at tag, version, or commit
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, runtime, package manager, architecture, and relevant service versions.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Exact commands, fixture, or repository that reproduces the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and logs
+      description: Include concise sanitized output.
+    validations:
+      required: true
+  - type: textarea
+    id: regression
+    attributes:
+      label: Regression and impact
+      description: Did this work previously? Who or what is blocked?
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched for duplicates.
+          required: true
+        - label: I removed credentials, private data, and vulnerability details.
+          required: true

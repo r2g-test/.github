@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/r2g-test/.github/security/advisories/new
+    about: Report vulnerabilities privately. Do not disclose exploit details in a public issue.
+  - name: Organization support guidance
+    url: https://github.com/r2g-test/.github/blob/main/SUPPORT.md
+    about: Review the information required for actionable support requests.

@@ -1,0 +1,44 @@
+name: Feature request
+description: Propose a focused improvement
+title: "feature: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: Describe the user, developer, or operational need without prescribing a solution first.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed outcome
+      description: Describe the desired behavior and acceptance criteria.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Include current workarounds or simpler options.
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and test impact
+      description: Note affected fixtures, interfaces, consumers, platforms, or release workflows.
+  - type: textarea
+    id: planning
+    attributes:
+      label: Planning context
+      description: Link related GitHub issues, Project items, Linear work, or design records.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched for existing proposals and related work.
+          required: true
+        - label: This request contains no credentials, private data, or vulnerability details.
+          required: true
