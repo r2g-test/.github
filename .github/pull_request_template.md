@@ -1,33 +1,32 @@
-## Summary
+## Linear
 
-<!-- What changed and why? Keep this focused on the user or developer outcome. -->
+- Issue or project: https://linear.app/denman/project/githubcomr2g-test-22027d260a34
 
-## Scope and boundaries
+## Purpose
 
-<!-- Which repositories, interfaces, fixtures, environments, or workflows are affected? What is intentionally out of scope? -->
+Describe the problem, intended behavior, and why this repository owns the change.
+
+## Architecture and compatibility
+
+Describe affected repositories, APIs, schemas, generated artifacts, migrations, infrastructure, deployment behavior, and external dependencies.
 
 ## Validation
 
-- [ ] Formatting and static checks pass
-- [ ] Relevant unit tests pass
-- [ ] Relevant integration or fixture tests pass
-- [ ] Failure and rollback paths were considered
-- [ ] Documentation and examples were updated
+- [ ] Relevant formatters, linters, tests, builds, contract checks, security checks, and end-to-end checks passed
+- [ ] Conflicts, if any, were resolved semantically using both sides, 3–10 relevant prior commits when useful, and cross-repository context
+- [ ] No destructive or history-rewriting operation was executed or recommended
+- [ ] No secrets, personal data, or production data are included
 
-Commands and evidence:
+Commands and concise results:
 
 ```text
-# Paste commands and concise results here.
+# Paste the commands run and their results here.
 ```
 
-## Risk, compatibility, and rollback
+## Risks and roll-forward plan
 
-<!-- Note breaking changes, supply-chain or credential risk, fixture impact, migration needs, and the rollback plan. -->
+Describe operational risks, monitoring, compatibility, and reversible roll-forward handling.
 
-## Planning links
+## Review focus
 
-<!-- Link the GitHub issue/Project item and Linear item when available. -->
-
-## Reviewer notes
-
-<!-- Call out the files, assumptions, or trade-offs that deserve the closest review. -->
+Call out assumptions, trade-offs, files, fixtures, or failure paths that deserve the closest review.

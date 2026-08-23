@@ -17,6 +17,16 @@ Describe affected repositories, APIs, schemas, generated artifacts, migrations, 
 - [ ] No destructive or history-rewriting operation was executed or recommended
 - [ ] No secrets, personal data, or production data are included
 
+Commands and concise results:
+
+```text
+# Paste the commands run and their results here.
+```
+
 ## Risks and roll-forward plan
 
 Describe operational risks, monitoring, compatibility, and reversible roll-forward handling.
+
+## Review focus
+
+Call out assumptions, trade-offs, files, fixtures, or failure paths that deserve the closest review.
