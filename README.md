@@ -33,6 +33,8 @@ Generated managed-policy version: `2026-08-08`.
 - [Human-readable map](architecture/REPOSITORY_RELATIONSHIPS.md)
 - [Machine-readable manifest](architecture/repository-relationships.json)
 - [JSON Schema](architecture/repository-relationships.schema.json)
+- [Test counterpart identity policy](docs/TEST_COUNTERPART_IDENTITY.md)
+- [Machine-readable counterpart state](architecture/test-counterpart.json)
 
-The public registry withholds private repository names and edges.
+The public registry withholds private repository names and edges. The separate counterpart state is currently `unconfigured`; no external GitHub owner may be inferred from the `r2g-test` name until a reviewed relationship activates one.
 <!-- END MANAGED REPOSITORY RELATIONSHIPS v1 -->
