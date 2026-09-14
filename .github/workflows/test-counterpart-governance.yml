@@ -1,0 +1,74 @@
+name: test counterpart identity governance
+on:
+  pull_request:
+    paths:
+      - 'architecture/test-counterpart.json'
+      - 'architecture/repository-relationships.json'
+      - 'docs/TEST_COUNTERPART_IDENTITY.md'
+      - 'README.md'
+      - '.github/workflows/test-counterpart-governance.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'architecture/test-counterpart.json'
+      - 'architecture/repository-relationships.json'
+      - 'docs/TEST_COUNTERPART_IDENTITY.md'
+      - 'README.md'
+      - '.github/workflows/test-counterpart-governance.yml'
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  validate-counterpart-identity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact head
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Bind exact revision
+        shell: bash
+        env:
+          EXPECTED_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+      - name: Validate machine-readable counterpart state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          counterpart = json.loads(Path('architecture/test-counterpart.json').read_text())
+          relationships = json.loads(Path('architecture/repository-relationships.json').read_text())
+
+          assert counterpart['schema_version'] == '1.0.0'
+          assert counterpart['test_owner'] == {
+              'login': 'r2g-test',
+              'id': 313177114,
+              'type': 'Organization',
+          }
+          assert counterpart['status'] == 'unconfigured'
+          assert counterpart['production_counterpart'] is None
+          assert counterpart['admitted_repository_scope'] == []
+          assert counterpart['policy']['suffix_inference_is_authoritative'] is False
+          assert counterpart['policy']['external_owner_crawl_allowed'] is False
+          assert counterpart['policy']['local_deterministic_tests_allowed'] is True
+          assert relationships['organization'] == 'r2g-test'
+          assert relationships['relationships'] == []
+          assert relationships['privacy']['private_repository_count'] == 0
+          PY
+      - name: Verify human documentation matches machine state
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'architecture/test-counterpart.json' README.md
+          grep -Fq 'docs/TEST_COUNTERPART_IDENTITY.md' README.md
+          grep -Fq 'currently has no admitted production GitHub counterpart' docs/TEST_COUNTERPART_IDENTITY.md
+          grep -Fq 'stripping `-test` yields `r2g`' docs/TEST_COUNTERPART_IDENTITY.md
+          grep -Fq 'must not infer another GitHub owner' docs/TEST_COUNTERPART_IDENTITY.md

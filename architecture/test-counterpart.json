@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "test_owner": {
+    "login": "r2g-test",
+    "id": 313177114,
+    "type": "Organization"
+  },
+  "status": "unconfigured",
+  "production_counterpart": null,
+  "admitted_repository_scope": [],
+  "relationship_registry": "architecture/repository-relationships.json",
+  "policy": {
+    "suffix_inference_is_authoritative": false,
+    "external_owner_crawl_allowed": false,
+    "local_deterministic_tests_allowed": true,
+    "shared_public_dependency_canaries_allowed": true
+  },
+  "reason": "No reviewed machine-readable relationship currently binds r2g-test to a production GitHub owner. The name r2g resolves to a separate GitHub user and must not be treated as a counterpart by suffix inference."
+}
